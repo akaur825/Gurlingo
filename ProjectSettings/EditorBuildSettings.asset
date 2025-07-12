@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/QuizScene.unity
     guid: 15a972042dcb40c40ad6efbca92ca54e
   - enabled: 1
-    path: Assets/Scenes/RaagLevelScene.unity
+    path: Assets/Scenes/SurLevelScene.unity
     guid: 48be58a6437e7ce4fa5aae433e96efde
   - enabled: 1
     path: Assets/Scenes/RaagSurScene.unity
