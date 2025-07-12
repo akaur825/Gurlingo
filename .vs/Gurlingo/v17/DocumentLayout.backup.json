@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\scalemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scalemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\raagsurmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\raagsurmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\assets\\scripts\\homemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\homemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ScaleManager.cs",
-              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\ScaleManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ScaleManager.cs",
-              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\ScaleManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ScaleManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Title": "RaagSurManager.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\RaagSurManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RaagSurManager.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\RaagSurManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RaagSurManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-06T18:44:24.816Z",
+              "WhenOpened": "2025-07-09T16:02:22.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeManager.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\HomeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\HomeManager.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\HomeManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\HomeManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T15:41:35.699Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuizManager.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\QuizManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\QuizManager.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\QuizManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\QuizManager.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAiwI0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-09T15:34:22.573Z",
               "EditorCaption": ""
             }
           ]
