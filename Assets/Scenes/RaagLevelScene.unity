@@ -153,9 +153,9 @@ RectTransform:
   - {fileID: 1884644945}
   m_Father: {fileID: 385847760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 391.8561, y: -469.2099}
   m_SizeDelta: {x: 743.7122, y: 103.4831}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3874829
@@ -274,9 +274,9 @@ RectTransform:
   - {fileID: 1046652921}
   m_Father: {fileID: 385847760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 391.8561, y: -335.7268}
   m_SizeDelta: {x: 743.7122, y: 103.4831}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5845849
@@ -669,9 +669,9 @@ RectTransform:
   - {fileID: 1533391595}
   m_Father: {fileID: 385847760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 391.8561, y: -202.24371}
   m_SizeDelta: {x: 743.7122, y: 103.4831}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42466039
@@ -821,7 +821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &83870000
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1222,8 +1222,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.000011444, y: -0.00002861}
+  m_SizeDelta: {x: 614.6367, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &205878513
 CanvasRenderer:
@@ -2847,7 +2847,7 @@ RectTransform:
   m_Father: {fileID: 1526178634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3470,7 +3470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1058450880}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1613006646}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: StartQuiz
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1058450880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5781,9 +5793,9 @@ RectTransform:
   - {fileID: 695324731}
   m_Father: {fileID: 385847760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 391.8561, y: -68.76062}
   m_SizeDelta: {x: 743.7122, y: 103.4831}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618714058

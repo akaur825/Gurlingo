@@ -36,32 +36,34 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "How many Shudh Raags are there in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "10", "31", "25", "40" },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "Which Raag is traditionally associated with the rainy season?",
-                answers = new string[] { "Basant", "Sarang", "Bhairo", "Malhaar" },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What is the term for the ascending scale of a Raag?",
-                answers = new string[] { "A set of notes ascending and descending the musical scale that evokes emotions.", "A style of Indian Classical music permormed at festivals.", "A sequence of noted used in Kirtan without any structure.", "A Tanti Saaj used in Kirtan to evoke certain emotions." },
+                questionText = "What is the definition of Raag?",
+                answers = new string[] { "A set of notes ascending and descending a scale that provoke a specific emotion.", "A style of Indian Classical music permormed at festivals.", "A sequence of noted used in Kirtan without any structure.", "A Tanti Saaj used in Kirtan to evoke certain emotions." },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What is the definition of Raag?",
-                answers = new string[] { "Bilawal", "Asa", "Basant", "Maaroo" },
+                questionText = "How many Shudh Raags are there in Sri Guru Granth Sahib Ji?",
+                answers = new string[] { "68", "31", "25", "40" },
+                correctAnswerIndex = 1
+            },
+            new Question
+            {
+                questionText = "What is the term for the ascending scale of a Raag?",
+                answers = new string[] { "Avroh", "Raag", "Aroh", "Sur" },
                 correctAnswerIndex = 2
             },
             new Question
             {
+                questionText = "What is the second most used Sur in a Raag",
+                answers = new string[] { "Vadi", "Anuvadi", "Vakrit Sur", "Samvadi" },
+                correctAnswerIndex = 3
+            },
+            
+            
+            new Question
+            {
                 questionText = "What is the term for notes that are forbidden in a Raag?",
-                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi Sur", "Samvadhi Sur" },
+                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi", "Samvadhi" },
                 correctAnswerIndex = 0
             },
             new Question
@@ -84,7 +86,7 @@ public class QuizManager : MonoBehaviour
             },
             new Question
             {
-                questionText = "What is the term for the primary note of a Raag?",
+                questionText = "What is the term for the most used note of a Raag?",
                 answers = new string[] { "Samvadhi", "Vadi", "Thaat", "Jaati" },
                 correctAnswerIndex = 1
             },
@@ -109,7 +111,6 @@ public class QuizManager : MonoBehaviour
     public void ExitQuiz()
     {
         quizPanel.SetActive(false);
-        // Optional: return to main menu or home screen logic here
     }
 
 
