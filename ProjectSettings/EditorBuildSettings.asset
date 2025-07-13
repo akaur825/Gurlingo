@@ -8,18 +8,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/QuizScene.unity
     guid: 15a972042dcb40c40ad6efbca92ca54e
   - enabled: 1
     path: Assets/Scenes/SurLevelScene.unity
-    guid: 48be58a6437e7ce4fa5aae433e96efde
+    guid: ad1ff2fd1b721374cad7969e9f7aa46f
   - enabled: 1
     path: Assets/Scenes/RaagSurScene.unity
     guid: 47ce1de40afdad649bf08c1bdb3801c3
   - enabled: 1
     path: Assets/Scenes/SurLevelScene.unity
-    guid: 9bb0e072ed4c59f4ba2e4f9f392e3e54
+    guid: ad1ff2fd1b721374cad7969e9f7aa46f
+  - enabled: 1
+    path: Assets/Scenes/RaagLevelScene.unity
+    guid: 171cac9bbf24ff14fa27c84d97fd1311
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 3c46daff0c541a04b9a484b8b6f9a08b, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

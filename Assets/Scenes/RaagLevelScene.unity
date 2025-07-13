@@ -1222,7 +1222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: -0.00002861}
+  m_AnchoredPosition: {x: -0.000011444, y: -0.00002861023}
   m_SizeDelta: {x: 614.6367, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &205878513
@@ -3473,7 +3473,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1613006646}
         m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
-        m_MethodName: StartQuiz
+        m_MethodName: StartRaagQuiz
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4893,13 +4893,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1613006643}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1613006646}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: ExitQuiz
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5759,6 +5759,8 @@ MonoBehaviour:
   - {fileID: 3874831}
   nextButton: {fileID: 2061530953}
   progressAnimationSpeed: 5
+  quizType: 0
+  quizEndPanel: {fileID: 0}
 --- !u!1 &1618714056
 GameObject:
   m_ObjectHideFlags: 0

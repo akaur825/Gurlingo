@@ -340,7 +340,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 941745424}
         m_TargetAssemblyTypeName: RaagSurManager, Assembly-CSharp
-        m_MethodName: LoadRaagScene
+        m_MethodName: LoadSurScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -809,7 +809,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 941745424}
         m_TargetAssemblyTypeName: RaagSurManager, Assembly-CSharp
-        m_MethodName: LoadSurScene
+        m_MethodName: LoadRaagScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

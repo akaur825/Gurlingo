@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\surquizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\surquizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\raagquizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\raagquizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "QuizManager.cs",
-              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\QuizManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\QuizManager.cs",
-              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\QuizManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\QuizManager.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAiwHUAAAAZAAAAAAAAAA==",
+              "Title": "SurQuizManager.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\SurQuizManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SurQuizManager.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\SurQuizManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SurQuizManager.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAwCIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T21:32:36.476Z",
+              "WhenOpened": "2025-07-13T00:16:11.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RaagQuizManager.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\RaagQuizManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RaagQuizManager.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\RaagQuizManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RaagQuizManager.cs",
+              "ViewState": "AgIAAMIAAAAAAAAAAAA4wNIAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T00:15:19.378Z",
               "EditorCaption": ""
             }
           ]
