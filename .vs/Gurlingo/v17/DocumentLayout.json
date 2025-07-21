@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\raagsurmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\raagsurmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\assets\\scripts\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\levelbackbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelbackbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\assets\\scripts\\raagsurmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\raagsurmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,11 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "LevelManager.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\LevelManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelManager.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\LevelManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelManager.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-19T20:51:21.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "RaagSurManager.cs",
               "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\RaagSurManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\RaagSurManager.cs",
@@ -30,20 +51,32 @@
               "RelativeToolTip": "Assets\\Scripts\\RaagSurManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-13T00:49:53.732Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-13T00:49:53.732Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "QuizManager.cs",
               "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\QuizManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\QuizManager.cs",
               "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\QuizManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\QuizManager.cs",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAwwHcAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T00:18:52.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LevelBackButton.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\LevelBackButton.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LevelBackButton.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\LevelBackButton.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LevelBackButton.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-19T19:32:25.139Z",
               "EditorCaption": ""
             }
           ]
