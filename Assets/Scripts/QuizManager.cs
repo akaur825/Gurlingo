@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class QuizManager : MonoBehaviour
 {
@@ -22,6 +24,8 @@ public class QuizManager : MonoBehaviour
     private Coroutine progressCoroutine;
 
     private int quizLevel = 1;
+    private int correctAnswers = 0;
+
 
     public enum QuizType
     {
@@ -103,6 +107,7 @@ public class QuizManager : MonoBehaviour
 
     public void StartQuiz()
     {
+        correctAnswers = 0;
         currentQuestionIndex = 0;
         quizPanel.SetActive(true);
         progressBar.maxValue = questions.Length;
@@ -113,6 +118,21 @@ public class QuizManager : MonoBehaviour
     public void ExitQuiz()
     {
         quizPanel.SetActive(false);
+    }
+
+    public void RetryQuiz()
+    {
+        quizEndPanel.SetActive(false);
+        StartQuiz();
+    }
+    public void LoadRaagMenu()
+    {
+        SceneManager.LoadScene("RaagLevelScene"); // Replace "MainMenu" with your actual scene name
+    }
+
+    public void LoadSurMenu()
+    {
+        SceneManager.LoadScene("RaagLevelScene");
     }
 
     void DisplayQuestion()
@@ -159,6 +179,11 @@ public class QuizManager : MonoBehaviour
                 answerButtons[i].image.color = new Color32(255, 126, 71, 255);
         }
 
+        if (selectedIndex == q.correctAnswerIndex)
+        {
+            correctAnswers++;
+        }
+
         nextButton.interactable = true;
         if (currentQuestionIndex == questions.Length - 1)
             AnimateProgressBar(questions.Length);
@@ -173,8 +198,34 @@ public class QuizManager : MonoBehaviour
         {
             quizPanel.SetActive(false);
             if (quizEndPanel != null)
+            {
                 quizEndPanel.SetActive(true);
-            Debug.Log("Quiz finished!");
+                float scorePercent = (float)correctAnswers / questions.Length;
+                bool passed = scorePercent >= 0.75f;
+
+                if (scorePercent >= 0.75f)
+                {
+                    int nextLevel = quizLevel + 1;
+                    string key = quizType.ToString() + "_UnlockedLevel";
+
+                    int currentUnlocked = PlayerPrefs.GetInt(key, 1); // defaults to level 1 unlocked
+
+                    if (nextLevel > currentUnlocked)
+                        PlayerPrefs.SetInt(key, nextLevel);
+                }
+
+                TextMeshProUGUI scoreText = quizEndPanel.transform.Find("ScoreText")?.GetComponent<TextMeshProUGUI>();
+                if (scoreText != null)
+                    scoreText.text = $"You scored {(scorePercent * 100):F0}%";
+
+                // Optionally display the score
+                Debug.Log($"Quiz finished! Score: {scorePercent * 100}%");
+
+                // Enable/disable Main Menu button based on score
+                Button menuButton = quizEndPanel.transform.Find("MainMenuButton").GetComponent<Button>();
+                if (menuButton != null)
+                    menuButton.interactable = passed;
+            }
             return;
         }
         DisplayQuestion();
