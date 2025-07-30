@@ -26,15 +26,12 @@ public class RaagLevelSelectManager : MonoBehaviour
                 lockIcon.gameObject.SetActive(!isUnlocked);
         }
     }
-    public void ResetProgress()
+    public void ResetRaagProgress()
     {
-        Debug.Log("Reset was called!");
-        PlayerPrefs.SetInt("Raag_UnlockedLevel1", 1);
-        PlayerPrefs.SetInt("Sur_UnlockedLevel1", 1);
+        PlayerPrefs.DeleteKey("Raag_UnlockedLevel");
+        PlayerPrefs.SetInt("Raag_UnlockedLevel", 1); // Optional: start fresh at level 1
         PlayerPrefs.Save();
-
-        Debug.Log("Progress reset!");
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Raag progress reset.");
     }
+
 }

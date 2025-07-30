@@ -26,6 +26,10 @@ public class QuizManager : MonoBehaviour
     private int quizLevel = 1;
     private int correctAnswers = 0;
 
+    public AudioSource questionAudioSource;
+    public Button questionPlayButton;
+
+
 
     public enum QuizType
     {
@@ -112,7 +116,8 @@ public class QuizManager : MonoBehaviour
         quizPanel.SetActive(true);
         progressBar.maxValue = questions.Length;
         progressBar.value = 0;
-        DisplayQuestion();
+        DisplayQuestion(questions[currentQuestionIndex]);
+
     }
 
     public void ExitQuiz()
@@ -135,21 +140,27 @@ public class QuizManager : MonoBehaviour
         SceneManager.LoadScene("RaagLevelScene");
     }
 
-    void DisplayQuestion()
+    void DisplayQuestion(Question q)
     {
         answered = false;
         nextButton.interactable = false;
 
-        if (currentQuestionIndex == questions.Length - 1)
-            nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "Finish!";
-        else
-            nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "Next";
-
-        Question q = questions[currentQuestionIndex];
         questionText.text = q.questionText;
         progressText.text = $"Question {currentQuestionIndex + 1} / {questions.Length}";
-
         AnimateProgressBar(currentQuestionIndex);
+
+        // Question audio setup
+        if (q.isAudioQuestion && q.questionAudioClip != null)
+        {
+            questionAudioSource.clip = q.questionAudioClip;
+            questionPlayButton.gameObject.SetActive(true);
+            questionPlayButton.onClick.RemoveAllListeners();
+            questionPlayButton.onClick.AddListener(() => questionAudioSource.Play());
+        }
+        else
+        {
+            questionPlayButton.gameObject.SetActive(false);
+        }
 
         for (int i = 0; i < answerOptions.Length; i++)
         {
@@ -163,35 +174,32 @@ public class QuizManager : MonoBehaviour
             option.answerButton.onClick.AddListener(() => OnAnswerSelected(index));
 
             option.playButton.onClick.RemoveAllListeners();
-            option.playButton.onClick.AddListener(() => PlayAudio(index));
 
-            if (q.isAudioQuestion)
+            if (q.isAudioAnswer)
             {
-                // Set answer text to indicate audio
+                // Show play button, hide text, and assign clip
                 option.answerButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Play Audio {i + 1}";
 
-                // Assign audio clip dynamically
                 if (q.answerAudioClips != null && i < q.answerAudioClips.Length)
                     option.audioSource.clip = q.answerAudioClips[i];
                 else
                     option.audioSource.clip = null;
 
                 option.playButton.gameObject.SetActive(true);
+                option.playButton.onClick.AddListener(() => PlayAudio(index));
             }
             else
             {
-                // Regular text answer
                 option.answerButton.GetComponentInChildren<TextMeshProUGUI>().text = q.answers[i];
-
-                // Hide play button if not audio
                 option.playButton.gameObject.SetActive(false);
-
-                // Optionally clear audio
                 option.audioSource.clip = null;
             }
         }
 
-
+        if (currentQuestionIndex == questions.Length - 1)
+            nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "Finish!";
+        else
+            nextButton.GetComponentInChildren<TextMeshProUGUI>().text = "Next";
     }
 
 
@@ -260,7 +268,8 @@ public class QuizManager : MonoBehaviour
             }
             return;
         }
-        DisplayQuestion();
+        DisplayQuestion(questions[currentQuestionIndex]);
+
     }
 
     void AnimateProgressBar(float targetValue)
@@ -280,6 +289,11 @@ public class QuizManager : MonoBehaviour
         }
         progressBar.value = targetValue;
     }
+
+
+
+
+    
 
     // ========== RAAG LEVEL QUESTION BANKS ==========
 
@@ -404,7 +418,22 @@ public class QuizManager : MonoBehaviour
                 questionText = " What time is Raag Bilaval sung",
                 answers = new string[] { "3pm-6pm", "1pm-4pm", "6pm-9pm", "9am-12pm" },
                 correctAnswerIndex = 3
+            },
+            new Question
+            {
+                questionText = "Which audio is in Raag Bilaval?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 2,
+                isAudioAnswer = true,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Basant"),
+                    Resources.Load<AudioClip>("Audio/Gond"),
+                    Resources.Load<AudioClip>("Audio/Bilaval"),
+                    Resources.Load<AudioClip>("Audio/Maaroo")
+                }
             }
+
         };
     }
     Question[] GetRaagLevel3Questions()
@@ -457,6 +486,19 @@ public class QuizManager : MonoBehaviour
                 questionText = "What time is Raag Gond sung?",
                 answers = new string[] { "3pm-6pm", "9am-12pm", "1pm-4pm", "6pm-9pm" },
                 correctAnswerIndex = 1
+            },
+            new Question
+            {
+                questionText = "Which audio is in Raag Gond?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 2,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Basant"),
+                    Resources.Load<AudioClip>("Audio/Bilaval"),
+                    Resources.Load<AudioClip>("Audio/Gond"),
+                    Resources.Load<AudioClip>("Audio/Malhaar")
+                }
             }
         };
     }
@@ -515,6 +557,19 @@ public class QuizManager : MonoBehaviour
                 questionText = "What number Raag is Raag Basant?",
                 answers = new string[] { "1st", "25th", "31st", "27th" },
                 correctAnswerIndex = 1
+            },
+            new Question
+            {
+                questionText = "Which audio is in Raag Basant?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 2,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Bhairo"),
+                    Resources.Load<AudioClip>("Audio/Todi"),
+                    Resources.Load<AudioClip>("Audio/Basant"),
+                    Resources.Load<AudioClip>("Audio/Sarang")
+                }
             }
         };
     }
@@ -569,6 +624,19 @@ public class QuizManager : MonoBehaviour
                 answers = new string[] { "Sa Re Ga ma Pa Dha Ni Sa'", "Sa Ga Ma Pa Dha Ni Sa'", "Sa re Ma Pa Ni Dha Sa'", "Sa Re Ga Ma Pa Dha Sa'" },
                 correctAnswerIndex = 0
             },
+            new Question
+            {
+                questionText = "Which audio is in Raag Kalyan?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 2,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Todi"),
+                    Resources.Load<AudioClip>("Audio/Gond"),
+                    Resources.Load<AudioClip>("Audio/Kalyan"),
+                    Resources.Load<AudioClip>("Audio/Malhaar")
+                }
+            }
         };
     }
     Question[] GetRaagLevel6Questions()
@@ -621,6 +689,19 @@ public class QuizManager : MonoBehaviour
                 questionText = "What is the Avroh of Raag Maaroo?",
                 answers = new string[] { "Sa' ni Dha Pa, ma Pa Dha ni Dha Pa, Ma Ga Re Sa", "Sa' ni Dha Pa, ma Pa dha Ni dha Pa, Ma Ga Re Sa", "Sa' Dha Pa Ga Re Sa", "Sa' Ni Dha Pa Ma Ga Re Sa" },
                 correctAnswerIndex = 1
+            },
+            new Question
+            {
+                questionText = "Which audio is in Raag Maaroo?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 3,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Shree"),
+                    Resources.Load<AudioClip>("Audio/Sarang"),
+                    Resources.Load<AudioClip>("Audio/Todi"),
+                    Resources.Load<AudioClip>("Audio/Maaroo")
+                }
             }
         };
     }
@@ -674,6 +755,19 @@ public class QuizManager : MonoBehaviour
                 questionText = "What is the Aroh of Shree Raag",
                 answers = new string[] { "Sa re Ma Pa Ni Sa'", "Sa Re Ga Pa Dha Sa'", "Sa Ma Pa Dha Ni Sa'", "Sa re ma Pa Ni Sa'" },
                 correctAnswerIndex = 3
+            },
+            new Question
+            {
+                questionText = "Which audio is in Shree Raag?",
+                answers = new string[] {"Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 2,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Malhaar"),
+                    Resources.Load<AudioClip>("Audio/Kalyan"),
+                    Resources.Load<AudioClip>("Audio/Shree"),
+                    Resources.Load<AudioClip>("Audio/Bhairo")
+                }
             }
         };
     }
@@ -727,6 +821,19 @@ public class QuizManager : MonoBehaviour
                 questionText = "What is the Samvadi of Raag Todi?",
                 answers = new string[] { "dha", "ga", "ma", "ni" },
                 correctAnswerIndex = 1
+            },
+            new Question
+            {
+                questionText = "Which audio is in Raag Todi?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 3,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Shree"),
+                    Resources.Load<AudioClip>("Audio/Sarang"),
+                    Resources.Load<AudioClip>("Audio/Maaroo"),
+                    Resources.Load<AudioClip>("Audio/Todi")
+                }
             }
         };
     }
@@ -780,6 +887,19 @@ public class QuizManager : MonoBehaviour
                 questionText = "What is the Aroh of Raag Sarang?",
                 answers = new string[] { "Sa Ga Ma Pa Ni Sa'", "Sa Re Pa Dha Ni Sa'", "Sa Re Ma Pa Ni Sa'", "sa, re ga ma, re pa Ni dha ni sa'" },
                 correctAnswerIndex = 2
+            },
+            new Question
+            {
+                questionText = "Which audio is in Raag Sarang?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 0,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Sarang"),
+                    Resources.Load<AudioClip>("Audio/Shree"),
+                    Resources.Load<AudioClip>("Audio/Malhaar"),
+                    Resources.Load<AudioClip>("Audio/Basant")
+                }
             }
         };
     }
@@ -825,9 +945,22 @@ public class QuizManager : MonoBehaviour
             },
             new Question
             {
-                questionText = "What is the Avroh of Raag Sarang?",
+                questionText = "What is the Avroh of Raag Malhaar?",
                 answers = new string[] { "Sa Re Ga Ma Pa ni Dha Ni Sa'", "Sa' Dha Pa Ga Re Sa", "Sa' Ni Dha ni Pa Ma Ga Re Sa", "Sa' Dha ni Pa, Ga Ma Re Sa" },
                 correctAnswerIndex = 3
+            },
+            new Question
+            {
+                questionText = "Which audio is in Raag Malhaar?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 1,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Basant"),
+                    Resources.Load<AudioClip>("Audio/Malhaar"),
+                    Resources.Load<AudioClip>("Audio/Kalyan"),
+                    Resources.Load<AudioClip>("Audio/Maaroo")
+                }
             }
         };
     }
@@ -839,7 +972,7 @@ public class QuizManager : MonoBehaviour
             {
                 questionText = "What is the Aroh of Raag Bhairo?",
                 answers = new string[] {
-                    "Sa ni DHa Pa Ma Ga Re Sa",
+                    "Sa ni Dha Pa Ma Ga Re Sa",
                     "Sa Ga Ma Pa Ni Sa'",
                     "Sa re Ga Ma Pa dha Ni Sa'",
                     "Sa' Ni dha pa ma Ga re Sa"
@@ -881,6 +1014,19 @@ public class QuizManager : MonoBehaviour
                 questionText = "What is the Vadi of Raag Bhairo?",
                 answers = new string[] { "re", "dha", "ma", "ga" },
                 correctAnswerIndex = 1
+            },
+            new Question
+            {
+                questionText = "Which audio is in Raag Bhairo?",
+                answers = new string[] { "Audio 1", "Audio 2", "Audio 3", "Audio 4" },
+                correctAnswerIndex = 0,
+                answerAudioClips = new AudioClip[]
+                {
+                    Resources.Load<AudioClip>("Audio/Bhairo"),
+                    Resources.Load<AudioClip>("Audio/Kalyan"),
+                    Resources.Load<AudioClip>("Audio/Sarang"),
+                    Resources.Load<AudioClip>("Audio/Todi")
+                }
             }
         };
     }
@@ -970,6 +1116,22 @@ public class QuizManager : MonoBehaviour
                     "Saaj"
                 },
                 correctAnswerIndex = 1
+            },
+            new Question
+            {
+                questionText = "What note is this?",
+                answers = new string[] {
+                    "Sa",
+                    "Pa",
+                    "Ma",
+                    "Re"
+                },
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Sa"),
+                // No audio for answers
+                isAudioAnswer = false
             }
         };
     }
@@ -979,91 +1141,93 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "",
+                questionText = "What is the full name of Re?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Rishad",
+                    "Re",
+                    "Rishab",
+                    "Rela"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2
             },
             new Question
             {
-                questionText = "",
+                questionText = "Which Shudh Sur comes after Sa in the Saptak (scale)?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Ga",
+                    "Re",
+                    "Ma",
+                    "Pa"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "",
+                questionText = "What note is this?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Sa",
+                    "Pa",
+                    "Ga",
+                    "Re"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 3,
+                 
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Re"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What note is this?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "re",
+                    "Re",
+                    "ga",
+                    "Ga"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/re2"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Sa Re",
+                    "Re Sa",
+                    "Sa Sa",
+                    "Re Re"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_1_Sa_Re"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Sa Sa Sa Sa",
+                    "Re Re Re Re",
+                    "Sa Re Sa Re",
+                    "Re Sa Re Sa"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_1_Sa_Re_Sa_Re"),
+
+                // No audio for answers
+                isAudioAnswer = false
             }
         };
     }
@@ -1073,91 +1237,94 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "",
+                questionText = "What is the full name of Ga?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Gandhar",
+                    "Gujri",
+                    "Gandhyam",
+                    "Gond"
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "",
+                questionText = "Which note comes after Re?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Pa",
+                    "Sa",
+                    "Ga",
+                    "Ma"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2
             },
             new Question
             {
-                questionText = "",
+                questionText = "What note is this?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "re",
+                    "Ga",
+                    "ga",
+                    "Ma"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Ga2"),
+
+                // No audio for answers
+                isAudioAnswer = false
+
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Sa ga re",
+                    "Sa Ga Re",
+                    "ga Ga Re",
+                    "Ga ga Re"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 3,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_2_Ga_ga_Re"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Sa re ga Ga",
+                    "Sa Ga Ga Re",
+                    "Sa Re Re ga",
+                    "Ga Re Sa Sa"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_2 Sa_Ga_Ga_re"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What is the order of notes in this audio?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "ga Sa Ga re Sa",
+                    "Ga Sa Ga re Sa",
+                    "Sa Sa Ga re Sa",
+                    "Sa Re Ga Ma"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_2_ga_Sa_Ga_re_Sa"),
+
+                // No audio for answers
+                isAudioAnswer = false
             }
         };
     }
@@ -1167,91 +1334,93 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "",
+                questionText = "What is the full name of Ma?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Malhaar",
+                    "Madhayam",
+                    "Gandhar",
+                    "Mandar"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "",
+                questionText = "Which note comes directly before Ma in the scale?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Pa",
+                    "Re",
+                    "Ga",
+                    "Sa"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2
             },
             new Question
             {
-                questionText = "",
+                questionText = "What note is this?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "ga",
+                    "Ma",
+                    "Ga",
+                    "Ma"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 3,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Ma2"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Sa Re Ga Ma",
+                    "Re Ga Ma Pa",
+                    "Ma Ga Re Sa",
+                    "Sa Ma Re Pa"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_3_Sa_Re_Ga_Ma"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Ga Ma ga ma",
+                    "Ma ma ga Ma",
+                    "ga Ma Ma ga",
+                    "ma ga ga ma"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_3_Ma_ma_ga_Ma"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Sa re ga ma Pa ni",
+                    "sa re ma ga ma re",
+                    "Sa re Ma ga ma re",
+                    "Ma Ga Re Sa Ga Sa"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_3_Sa_re_Ma_ga_ma_re"),
+
+                // No audio for answers
+                isAudioAnswer = false
             }
         };
     }
@@ -1261,91 +1430,93 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "",
+                questionText = "What is the full name of Pa?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Pancham",
+                    "Panchat",
+                    "Pritham",
+                    "Partaal"
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "",
+                questionText = "What note is this?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "pa",
+                    "ma",
+                    "Pa",
+                    "Sa"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Pa"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What type of Sur is Pa?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Vakrit",
+                    "Achala",
+                    "Teevar",
+                    "Komal"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Pa Ma Ga Ga Re",
+                    "Pa Ga Re Sa Ga",
+                    "Sa Ga Ma Pa Ma",
+                    "Pa ma Ga ga Re"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 3,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_4_Pa_ma_Ga_ga_re"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What is the highest note in this audio?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Pa",
+                    "ga",
+                    "Sa",
+                    "Ni"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_4_Sa_ga_Pa_ma_Re"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What note is missing in this sequence?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Ga",
+                    "Re",
+                    "Ma",
+                    "Pa"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_4_Sa_Re_Ga_Ma_Pa"),
+
+                // No audio for answers
+                isAudioAnswer = false
             }
         };
     }
@@ -1355,91 +1526,93 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "",
+                questionText = "What is the full name of Dha?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Dhaivar",
+                    "Dhan",
+                    "Dhrupad",
+                    "Dhaivat"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 3
             },
             new Question
             {
-                questionText = "",
+                questionText = "What note is this?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Dha",
+                    "dha",
+                    "ma",
+                    "Pa"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Dha"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What notes do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Dha Dha Pa Ga Ma",
+                    "dha dha Pa ga Ma",
+                    "Dha Dha Pa ga ma",
+                    "Dha dha Pa ga Ma"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 3,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_5_Dha_dha_Pa_ga_Ma"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "How many distinct notes do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "5",
+                    "4",
+                    "6",
+                    "7"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_5_Sa_Re_Ga_Ma_Pa_Dha"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What are the two types of Surs that Dha has?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Only Achala",
+                    "Shudh and Komal",
+                    "Shudh and Teevar",
+                    "Achala and Vakrit"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "",
+                questionText = "What do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "dha Pa ga Re Sa re Sa",
+                    "Dha Pa Ga Re Sa Re Sa",
+                    "dha Pa ga re Sa Sa Sa",
+                    "dha Pa ga re Sa Re Sa"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_5_dha_Pa_ga_Re_Sa_re_Sa"),
+
+                // No audio for answers
+                isAudioAnswer = false
             }
         };
     }
@@ -1449,91 +1622,93 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "",
+                questionText = "What is th full name of Ni?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Naam",
+                    "Nishad",
+                    "Nitnem",
+                    "Nidhar"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "",
+                questionText = "What note is this?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Ni",
+                    "ni",
+                    "Pa",
+                    "Ma"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Ni"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "Choose the correct order of notes you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Dha Ni Ma Pa",
+                    "Dha ni Pa Ma",
+                    "Ga Ma Re Sa",
+                    "Pa Dha Ni Ma"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 1,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_6_Dha_ni_Pa_Ma"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "How many times do you hear Ni in this sequence?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "2",
+                    "6",
+                    "3",
+                    "1"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 2,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_6_Ni_Dha_Ni_Ma_Pa_Ni"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What notes do you hear?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Ni ni dha Pa Dha ni Ma",
+                    "ni ni dha Pa dha ni ma",
+                    "ni ni Dha Pa Dha ni Ma",
+                    "Sa'ni Pa Ga Ma Ga Sa"
                 },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 0,
+
+                isAudioQuestion = true,
+                questionAudioClip = Resources.Load<AudioClip>("Audio/Questions/Level_6_Ni_ni_dha_Pa_Dha_ni_Ma"),
+
+                // No audio for answers
+                isAudioAnswer = false
             },
             new Question
             {
-                questionText = "",
+                questionText = "What is the last Shudh Sur of the Saptak?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Dha",
+                    "Sa'",
+                    "Ni'",
+                    "Ni"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
+                correctAnswerIndex = 3
             }
         };
     }
@@ -1574,8 +1749,10 @@ public class Question
     public string[] answers;
     public int correctAnswerIndex;
 
+    public bool isAudioAnswer;
     public bool isAudioQuestion;
     public AudioClip[] answerAudioClips;
+    public AudioClip questionAudioClip;
 }
 
 [System.Serializable]

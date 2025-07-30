@@ -11,6 +11,7 @@ public class InfoPanelManager : MonoBehaviour
     public TextMeshProUGUI bodyText;
     public Button closeButton;
 
+
     private int infoLevel = 1;
 
 
@@ -70,7 +71,7 @@ public class InfoPanelManager : MonoBehaviour
                     "Introduction to Raags",
                     "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
                     "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
+                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion.</i>\n\n" +
                     "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
                     "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
                     "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
@@ -78,6 +79,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
                     "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
                     "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+
                 )
             },
             {
@@ -109,7 +111,8 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180><i>Raag Bilaval is a very happy and joyful raag.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180>https://youtu.be/ayz3IjAXlXw?si=Ou6FqX0uelA8rk_4\n"
+                    "<indent=180><link=\"https://youtu.be/iiUHl8fTn5Y?si=smegPS9pAaLQaBkl\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
             {
@@ -141,329 +144,331 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180><i>Gond’s mood is not widely documented, but it is often considered meditative and introspective due to its uncommon usage.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180>https://youtu.be/WR2p3yANJKE?si=L9vrwRrDd1L6LDo-\n"
+                    "<indent=180><link=\"https://youtu.be/Wzw2eQ1FN2A?si=wzrnDVza_AMseZoh\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
             {
                 (InfoType.Raag, 4),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Four",
+                    "\n<align=center><b>Welcome to Level Four: Raag Basant!</b></align>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>About Raag Basant:</color></b>\n\n" +
+
+                    "<indent=180><b>Raag Basant is the 25th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Bilaval Thaat — uses all Shudh notes.</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Audav–Sampooran Jaati — 5 notes in Aroh, 7 in Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Associated with Spring; no specific pehar — can be sung all day.</i>\n\n" +
+                    "<indent=180><b>Raag Basant has NO Mishrat Raags.</b>\n\n" +
+                    "<indent=180><b>Basant Ki Vaar</b> — a well-known bani is composed in Raag Basant.\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Ga Ma Dha Ni Sa’</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni Dha Pa Ma Ga Re Sa</i>\n" +
+                    "<indent=180>Notice how all notes are Shudh!\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
+                    "<indent=180><b>Vadi:</b> <i>Sa (Shadaj)</i>\n" +
+                    "<indent=180><b>Samvadi:</b> <i>Ma (Madhyam)</i>\n" +
+                    "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
+                    "<indent=180><link=\"https://youtu.be/LUoSCMa2I-E?si=Qo3d_NzBqzmNznEw\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
             {
                 (InfoType.Raag, 5),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Five",
+                    "\n<align=center><b>Welcome to Level Five: Raag Kalyan!</b></align>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>About Raag Kalyan:</color></b>\n\n" +
+
+                    "<indent=180><b>Raag Kalyan is the 29th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Kalyan Thaat — uses all Shudh notes, with vakrit Ma (Teevra Ma used creatively).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran Jaati — all 7 notes are used in both the Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Evening Raag — commonly sung between 6pm and 9pm.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raag:</b> <i>Kalyan Bhopali.</i>\n\n" +
+                    "<indent=180><b>This Raag is very popular and is also known as Raag Yaman in Indian Classical music.</b>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Re Ga Ma (Teevra) Pa Dha Ni Sa’</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni Dha Pa Ma (Teevra) Ga Re Sa</i>\n" +
+                    "<indent=180>Note: Vakrit Ma — Teevra Ma is used in a special way.\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
+                    "<indent=180><b>Vadi:</b> <i>Ga (Gandhar)</i>\n" +
+                    "<indent=180><b>Samvadi:</b> <i>Ni (Nishad)</i>\n" +
+                    "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
+                    "<indent=180><link=\"https://youtu.be/gnEX7tLlVJY?si=ukO48tQMbbFqZUNt\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
             {
                 (InfoType.Raag, 6),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Six",
+                    "\n<align=center><b>Welcome to Level Six: Raag Maaroo!</b></align>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>About Raag Maaroo:</color></b>\n\n" +
+
+                    "<indent=180><b>Raag Maaroo is the 21st Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Khamaaj Thaat — Ni is typically vakrit (used with variation).</i>\n\n" +
+                    "<indent=180><b>Note Usage:</b> <i>Both forms of Ni, Dha, and Ma are used.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 12pm – 3pm.</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Shaudav–Sampooran — 6 notes in Aroh, 7 in Avroh.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>Maaroo Kafi and Maaroo Dakhni.</i>\n\n" +
+                    "<indent=180><b>This Raag is sung during times of war and death but aims to uplift and inspire the spirit.</b>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Ga Ma Pa Dha Ni Sa’</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Sa’ ni Dha Pa, ma Pa dha Ni dha Pa, Ma Ga Re Sa</i>\n" +
+                    "<indent=180>Note the unique use of both shudh and vakrit forms.\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
+                    "<indent=180><b>Vadi:</b> <i>Ga (Gandhar)</i>\n" +
+                    "<indent=180><b>Samvadi:</b> <i>Ni (Nishad)</i>\n" +
+                    "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
+                    "<indent=180><link=\"https://youtu.be/SHCeMRhF5Aw?si=kFdKT7sGm983r3TB\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
             {
                 (InfoType.Raag, 7),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Seven",
+                    "\n<align=center><b>Welcome to Level Seven: Shree Raag!</b></align>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>About Shree Raag:</color></b>\n\n" +
+
+                    "<indent=180><b>Raag Shree is the 1st Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Purvi Thaat — Ma, Re, and Dha are vakrit (used with variation).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Audav–Sampooran — 5 notes in Aroh, 7 in Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 6pm – 9pm.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None — Shree stands alone in its structure.</i>\n\n" +
+                    "<indent=180><b>This Raag provokes a deep sense of separation and longing — it is primarily a serious and somber raag.</b>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Re (vakrit) Ma Pa Ni Sa’</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni Dha Pa Ma Ga Re Sa</i>\n" +
+                    "<indent=180>Notice the vakrit use of Ma, Re, and Dha in both ascent and descent.\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
+                    "<indent=180><b>Vadi:</b> <i>Re (Rishabh)</i>\n" +
+                    "<indent=180><b>Samvadi:</b> <i>Pa (Pancham)</i>\n" +
+                    "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
+                    "<indent=180><link=\"https://youtu.be/R8o5ra6E_n0?si=3iNzUIIvRLm0FPrd\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
                         {
                 (InfoType.Raag, 8),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Eight",
+                    "\n<align=center><b>Welcome to Level Eight: Raag Todi!</b></align>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>About Raag Todi:</color></b>\n\n" +
+
+                    "<indent=180><b>Raag Todi is the 12th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Todi Thaat — Ma, Re, Dha, and Ga are typically vakrit (used in ornamented forms).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran — all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 12pm – 3pm.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None — Todi is a pure raag.</i>\n\n" +
+                    "<indent=180><b>This Raag is considered very serious and is performed with deep emotional intensity.</b>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa re ga ma, Pa, ma dha Ni Sa’</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni dha, Pa, ma dha ma ga re Sa</i>\n" +
+                    "<indent=180>Vakrit notes create a deeply expressive and ornamented character.\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
+                    "<indent=180><b>Vadi:</b> <i>Dha (Dhaivat)</i>\n" +
+                    "<indent=180><b>Samvadi:</b> <i>Ga (Gandhar)</i>\n" +
+                    "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
+                    "<indent=180><link=\"https://youtu.be/bvRY-CsPvyc?si=R47zriNo6VqliXhM\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
             {
                 (InfoType.Raag, 9),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Nine",
+                    "\n<align=center><b>Welcome to Level Nine: Raag Sarang!</b></align>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>About Raag Sarang:</color></b>\n\n" +
+
+                    "<indent=180><b>Raag Sarang is the 26th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Kafi Thaat — Ga and Ni are typically vakrit (used with variation).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Audav — 5 notes in both Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Note Usage:</b> <i>Both forms of Ni are used.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 12pm – 3pm.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None — Sarang is a standalone raag.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Re Ma Pa Ni Sa’</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Sa’ ni Pa Ma Re Sa</i>\n" +
+                    "<indent=180>Vakrit notes and audav structure give Sarang its unique melodic feel.\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
+                    "<indent=180><b>Vadi:</b> <i>Re (Rishabh)</i>\n" +
+                    "<indent=180><b>Samvadi:</b> <i>Pa (Pancham)</i>\n" +
+                    "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
+                    "<indent=180><link=\"https://youtu.be/0w0Yy7OOD0o?si=8CZNKVtM6GcHEaer\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
             {
                 (InfoType.Raag, 10),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Ten",
+                    "\n<align=center><b>Welcome to Level Ten: Raag Malhar!</b></align>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>About Raag Malhar:</color></b>\n\n" +
+
+                    "<indent=180><b>Raag Malhar is the 27th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Khamaaj Thaat — Ni is typically vakrit (used ornamentally or with variation).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran — all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung anytime during the Rainy / Savan season.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None — Malhar is a standalone, classical monsoon raag.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa, Re Ga Ma, Re Pa ni Dha Ni Sa’</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Sa’ Dha ni Pa, Ga Ma Re Sa</i>\n" +
+                    "<indent=180>Malhar features fluid phrases that evoke the sound and mood of rain.\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
+                    "<indent=180><b>Vadi:</b> <i>Ma (Madhyam)</i>\n" +
+                    "<indent=180><b>Samvadi:</b> <i>Sa (Shadaj)</i>\n" +
+                    "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
+                    "<indent=180><link=\"https://youtu.be/n6G6IomIZFM?si=eW0nYZGP-j97RlbO\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
             {
                 (InfoType.Raag, 11),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Eleven",
+                    "\n<align=center><b>Welcome to Level Eleven: Raag Bhairo!</b></align>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>About Raag Bhairo:</color></b>\n\n" +
+
+                    "<indent=180><b>Raag Bhairo is the 24th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Bhairav Thaat — Re, Ga, Dha, and Ni are typically vakrit (used ornamentally or with variation).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran — all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 6am – 9am — a popular early morning raag.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None — Bhairo is a distinct and complete raag.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa re Ga Ma Pa dha Ni Sa’</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni dha Pa Ma Ga re Sa</i>\n" +
+                    "<indent=180>The vakrit swars give Bhairo a deep, meditative character.\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
+                    "<indent=180><b>Vadi:</b> <i>Dha (Dhaivat)</i>\n" +
+                    "<indent=180><b>Samvadi:</b> <i>Re (Rishabh)</i>\n" +
+                    "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
+
+                    "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
+                    "<indent=180><link=\"https://youtu.be/r_ev2D481uw?si=hqlBYzt5HcO8P7_w\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+
                 )
             },
                         {
                 (InfoType.Sur, 1),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
+                    "Introduction to Sur",
+                    "\n<align=center><b>Welcome to the first level of Sur Training! In this level, you will begin learning sur-related terminology and the first sur, Sa.</b></align>\n\n" +
                     "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "<indent=180><b>Sur:</b> <i> A musical note.</i>\n\n" +
+                    "<indent=180><b>Vakrit Sur:</b> <i> Variation of a Sur.</i>\n\n" +
+                    "<indent=180><b>Komal Sur:</b> <i> Soft or flatter variation of a Sur - re, ga, dha, ni.</i>\n\n" +
+                    "<indent=180><b>Teevar Sur:</b> <i> Sharper variation of a Sur - ma.</i>\n\n" +
+                    "<indent=180><b>Achala Sur:</b> <i> Sur that is fixed in place; It has no Vakrit form - Sa, Pa.</i>\n\n" +
+                    "<indent=180><b>Saptak:</b> <i> There are three Saptaks (Octaves) in Gurmat Sangeet - Mandar (low), Madhyam (medium), and Taar (high). Each Saptak has 12 notes (including Vakrit Surs).</i>\n\n" +
+                    "<indent=180><b>Shadaj:</b> <i> The proper and full name of Sa.</i>\n\n" +
+                    "<indent=200><i>Note that Shadaj is an Achala Sur.</i>\n\n"
                 )
             },
             {
                 (InfoType.Sur, 2),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Two",
+                    "\n<align=center><b>In this level we will introduce a new note, Re, or Rishab.</b></align>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
+                    "<indent=180><b>Shudh:</b>\n\n" +
+                    "<indent=180><b>Komal:</b>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa and Re!</color></b>\n\n"
                 )
             },
             {
                 (InfoType.Sur, 3),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Three",
+                    "\n<align=center><b>In this level we will introduce a new note, Ga, or Gandhar.</b></align>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
+                    "<indent=180><b>Shudh:</b>\n\n" +
+                    "<indent=180><b>Komal:</b>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, and Ga!</color></b>\n\n"
                 )
             },
             {
                 (InfoType.Sur, 4),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Four",
+                    "\n<align=center><b>In this level we will introduce a new note, Ma, or Madhyam.</b></align>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
+                    "<indent=180><b>Shudh:</b>\n\n" +
+                    "<indent=180><b>Teevar:</b>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, Ga, and Ma!</color></b>\n\n"
                 )
             },
             {
                 (InfoType.Sur, 5),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Five",
+                    "\n<align=center><b>In this level we will introduce a new note, Pa, or Pancham.</b></align>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
+                    "<indent=180><b>Shudh:</b>\n\n" +
+                    "<indent=180><b>Note:</b><i> Pancham is an Achala Sur, meaning it has no Vakrit form.</i>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, Ga, Ma, and Pa!</color></b>\n\n"
                 )
             },
             {
                 (InfoType.Sur, 6),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Six",
+                    "\n<align=center><b>In this level we will introduce a new note, Dha, or Dhaivat.</b></align>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
+                    "<indent=180><b>Shudh:</b>\n\n" +
+                    "<indent=180><b>Komal:</b>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, Ga, Ma, Pa, and Dha!</color></b>\n\n"
                 )
             },
             {
                 (InfoType.Sur, 7),
                 (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
+                    "Level Seven",
+                    "\n<align=center><b>In this level we will introduce the final note in a Saptak, Ni, or Nishad.</b></align>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
+                    "<indent=180><b>Shudh:</b>\n\n" +
+                    "<indent=180><b>Komal:</b>\n\n" +
+                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, Ga, Ma, Pa, Dha, and Ni!</color></b>\n\n"
                 )
-            },
-            {
-                (InfoType.Sur, 8),
-                (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
-                )
-            },
-            {
-                (InfoType.Sur, 9),
-                (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
-                )
-            },
-            {
-                (InfoType.Sur, 10),
-                (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
-                )
-            },
-            {
-                (InfoType.Sur, 11),
-                (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
-                )
-            },
-            {
-                (InfoType.Sur, 12),
-                (
-                    "Introduction to Raags",
-                    "\n<align=center><b>Welcome to the first level of Raag Training! In this level, we will go over some of the fundamental terms of Gurmat Sangeet.</b></align>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Useful Terminology:</color></b>\n\n" +
-                    "<indent=180><b>Raag:</b> <i> A set of notes ascending and descending a scale that provokes a specific emotion. The purpose of a raag is to teach classical music techniques and provide a musical framework for Gurbani that helps provoke emotion..</i>\n\n" +
-                    "<indent=180><b>Shudh Raag:</b> <i> A raag without the influence of other raags. There are 31 of them in Sri Guru Granth Sahib Ji.</i>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i> The set of notes that ascend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Avroh:</b> <i> The set of notes that descend the scale of a raag.</i>\n\n" +
-                    "<indent=180><b>Vadi:</b> <i> The most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Samvadi:</b> <i> The second most used sur in a raag.</i>\n\n" +
-                    "<indent=180><b>Varjit Surs:</b> <i> Notes that cannot be used in a raag.</i>\n\n" +
-                    "<indent=180><b>Mukh Ang:</b> <i> A set of notes that can help define a raag.</i>"
-                )
-            },
+            }
         };
     }
 

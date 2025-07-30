@@ -25,4 +25,12 @@ public class SurLevelSelectManager : MonoBehaviour
                 lockIcon.gameObject.SetActive(!isUnlocked);
         }
     }
+    public void ResetSurProgress()
+    {
+        PlayerPrefs.DeleteKey("Sur_UnlockedLevel");
+        PlayerPrefs.SetInt("Sur_UnlockedLevel", 1);
+        PlayerPrefs.Save();
+        Debug.Log("Sur progress reset.");
+    }
+
 }

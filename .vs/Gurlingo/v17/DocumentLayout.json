@@ -11,12 +11,8 @@
       "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\infopanelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\assets\\scripts\\raaglevelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\raaglevelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\assets\\scripts\\surlevelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\surlevelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|c:\\users\\kaur9\\onedrive\\desktop\\gsri\\gurlingo\\assets\\scripts\\linkopener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AB86B1B-3F09-6681-8093-40EE979BECD4}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\linkopener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,32 +22,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InfoPanelManager.cs",
-              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\InfoPanelManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\InfoPanelManager.cs",
-              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\InfoPanelManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\InfoPanelManager.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAowIMAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T04:47:58.959Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "RaagLevelManager.cs",
-              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\RaagLevelManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\RaagLevelManager.cs",
-              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\RaagLevelManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\RaagLevelManager.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAuwB4AAAAnAAAAAAAAAA==",
+              "Title": "LinkOpener.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\LinkOpener.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LinkOpener.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\LinkOpener.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LinkOpener.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T22:46:21.145Z"
+              "WhenOpened": "2025-07-30T04:43:24.873Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -61,22 +45,23 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\QuizManager.cs",
               "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\QuizManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\QuizManager.cs",
-              "ViewState": "AgIAAJgBAAAAAAAAAADwv7IBAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAUwJ0AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-13T00:18:52.272Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SurLevelManager.cs",
-              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\SurLevelManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SurLevelManager.cs",
-              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\SurLevelManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SurLevelManager.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAAA0AAAA9AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "InfoPanelManager.cs",
+              "DocumentMoniker": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\InfoPanelManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\InfoPanelManager.cs",
+              "ToolTip": "C:\\Users\\kaur9\\OneDrive\\Desktop\\GSRI\\Gurlingo\\Assets\\Scripts\\InfoPanelManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\InfoPanelManager.cs",
+              "ViewState": "AgIAANwAAAAAAAAAAAAAAOoAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-21T22:47:41.618Z"
+              "WhenOpened": "2025-07-25T04:47:58.959Z",
+              "EditorCaption": ""
             }
           ]
         }
