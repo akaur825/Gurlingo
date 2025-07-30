@@ -12,7 +12,7 @@ public class QuizManager : MonoBehaviour
     public Slider progressBar;
     public TextMeshProUGUI progressText;
     public TextMeshProUGUI questionText;
-    public Button[] answerButtons;
+    public AnswerOption[] answerOptions; // Replaces Button[] answerButtons
     public Button nextButton;
 
     [Header("Progress Bar Animation")]
@@ -76,11 +76,11 @@ public class QuizManager : MonoBehaviour
                 case 5: questions = GetSurLevel5Questions(); break;
                 case 6: questions = GetSurLevel6Questions(); break;
                 case 7: questions = GetSurLevel7Questions(); break;
-                case 8: questions = GetSurLevel8Questions(); break;
-                case 9: questions = GetSurLevel9Questions(); break;
-                case 10: questions = GetSurLevel10Questions(); break;
-                case 11: questions = GetSurLevel11Questions(); break;
-                case 12: questions = GetSurLevel12Questions(); break;
+                //case 8: questions = GetSurLevel8Questions(); break;
+                //case 9: questions = GetSurLevel9Questions(); break;
+                //case 10: questions = GetSurLevel10Questions(); break;
+                //case 11: questions = GetSurLevel11Questions(); break;
+                //case 12: questions = GetSurLevel12Questions(); break;
                 default:
                     Debug.LogError("Invalid Sur level.");
                     questions = new Question[0];
@@ -151,17 +151,49 @@ public class QuizManager : MonoBehaviour
 
         AnimateProgressBar(currentQuestionIndex);
 
-        for (int i = 0; i < answerButtons.Length; i++)
+        for (int i = 0; i < answerOptions.Length; i++)
         {
-            answerButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = q.answers[i];
-            answerButtons[i].interactable = true;
-            answerButtons[i].image.color = Color.white;
+            var option = answerOptions[i];
 
             int index = i;
-            answerButtons[i].onClick.RemoveAllListeners();
-            answerButtons[i].onClick.AddListener(() => OnAnswerSelected(index));
+
+            option.answerButton.interactable = true;
+            option.answerButton.image.color = Color.white;
+            option.answerButton.onClick.RemoveAllListeners();
+            option.answerButton.onClick.AddListener(() => OnAnswerSelected(index));
+
+            option.playButton.onClick.RemoveAllListeners();
+            option.playButton.onClick.AddListener(() => PlayAudio(index));
+
+            if (q.isAudioQuestion)
+            {
+                // Set answer text to indicate audio
+                option.answerButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Play Audio {i + 1}";
+
+                // Assign audio clip dynamically
+                if (q.answerAudioClips != null && i < q.answerAudioClips.Length)
+                    option.audioSource.clip = q.answerAudioClips[i];
+                else
+                    option.audioSource.clip = null;
+
+                option.playButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                // Regular text answer
+                option.answerButton.GetComponentInChildren<TextMeshProUGUI>().text = q.answers[i];
+
+                // Hide play button if not audio
+                option.playButton.gameObject.SetActive(false);
+
+                // Optionally clear audio
+                option.audioSource.clip = null;
+            }
         }
+
+
     }
+
 
     void OnAnswerSelected(int selectedIndex)
     {
@@ -170,13 +202,13 @@ public class QuizManager : MonoBehaviour
 
         Question q = questions[currentQuestionIndex];
 
-        for (int i = 0; i < answerButtons.Length; i++)
+        for (int i = 0; i < answerOptions.Length; i++)
         {
-            answerButtons[i].interactable = false;
+            answerOptions[i].answerButton.interactable = false;
             if (i == q.correctAnswerIndex)
-                answerButtons[i].image.color = new Color32(167, 255, 66, 255);
+                answerOptions[i].answerButton.image.color = new Color32(167, 255, 66, 255);
             else if (i == selectedIndex)
-                answerButtons[i].image.color = new Color32(255, 126, 71, 255);
+                answerOptions[i].answerButton.image.color = new Color32(255, 126, 71, 255);
         }
 
         if (selectedIndex == q.correctAnswerIndex)
@@ -287,7 +319,7 @@ public class QuizManager : MonoBehaviour
             new Question
             {
                 questionText = "What is the term for notes that are forbidden in a Raag?",
-                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi", "Samvadhi" },
+                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi", "Samvadi" },
                 correctAnswerIndex = 0
             },
             new Question
@@ -311,7 +343,7 @@ public class QuizManager : MonoBehaviour
             new Question
             {
                 questionText = "What is the term for the most used note of a Raag?",
-                answers = new string[] { "Samvadhi", "Vadi", "Thaat", "Jaati" },
+                answers = new string[] { "Samvadi", "Vadi", "Thaat", "Jaati" },
                 correctAnswerIndex = 1
             },
             new Question
@@ -369,12 +401,6 @@ public class QuizManager : MonoBehaviour
             },
             new Question
             {
-                questionText = "Which of the folowing shabads is in Raag Bilaval?",
-                answers = new string[] { "insert shabad", "insert shabad", "insert shabad", "insert shabad" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
                 questionText = " What time is Raag Bilaval sung",
                 answers = new string[] { "3pm-6pm", "1pm-4pm", "6pm-9pm", "9am-12pm" },
                 correctAnswerIndex = 3
@@ -419,12 +445,6 @@ public class QuizManager : MonoBehaviour
                 questionText = "What is the Samvadi of Raag Gond?",
                 answers = new string[] { "Sa", "Dha", "Ni", "Pa" },
                 correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "Which of the following shabads is in Raag Gond?",
-                answers = new string[] { "Insert Shabad", "Insert Shabad", "Insert Shabad", "Insert Shabad" },
-                correctAnswerIndex = 2
             },
              new Question
             {
@@ -492,12 +512,6 @@ public class QuizManager : MonoBehaviour
             },
             new Question
             {
-                questionText = "Which of the following shabads is in Raag Basant?",
-                answers = new string[] { "Insert Shabad", "Insert Shabad", "Insert Shabad", "Insert Shabad" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
                 questionText = "What number Raag is Raag Basant?",
                 answers = new string[] { "1st", "25th", "31st", "27th" },
                 correctAnswerIndex = 1
@@ -549,18 +563,6 @@ public class QuizManager : MonoBehaviour
                 answers = new string[] { "Raag Bmhimpilasi", "Raag Basant", "Raag Yaman", "Raag Khamaj" },
                 correctAnswerIndex = 3
             },
-            new Question
-            {
-                questionText = "Which of the following shabads is in Raag Kalyan?",
-                answers = new string[] { "Insert Shabad", "Insert Shabad", "Insert Shabad", "Insert Shabad" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What number raag is Raag Kalyan?",
-                answers = new string[] { "25th", "29th", "31st", "27th" },
-                correctAnswerIndex = 1
-            },
              new Question
             {
                 questionText = "What is the Aroh of Raag Kalyan?",
@@ -575,7 +577,7 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is the THaat of Raag Maaroo",
+                questionText = "What is the Thaat of Raag Maaroo",
                 answers = new string[] {
                     "Bilaval",
                     "Todi",
@@ -610,8 +612,8 @@ public class QuizManager : MonoBehaviour
             },
             new Question
             {
-                questionText = "Which of the following shabads are in Raag Maaroo?",
-                answers = new string[] { "Insert Shabad", "Insert Shabad", "Insert Shabad", "Insert Shabad" },
+                questionText = "What is the Jaati of Raag Maaroo?",
+                answers = new string[] { "Shaudav Jaati", "Sampooran Jaati", "Shaudav-Sampooran", "Audav-Shaudav" },
                 correctAnswerIndex = 2
             },
             new Question
@@ -628,68 +630,50 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "",
+                questionText = "What is the Avroh of Shree Raag?",
                 answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
+                    "Sa' dha Pa ga re sa",
+                    "Sa' Ni Dha Pa Ma Ga Re Sa",
+                    "Sa re ma Pa Ni Sa'",
+                    "Sa' Ni dha pa ma Ga re Sa"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "How many Shudh Raags are there in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "68", "31", "25", "40" },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is the term for the ascending scale of a Raag?",
-                answers = new string[] { "Avroh", "Raag", "Aroh", "Sur" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the second most used Sur in a Raag",
-                answers = new string[] { "Vadi", "Anuvadi", "Vakrit Sur", "Samvadi" },
                 correctAnswerIndex = 3
             },
             new Question
             {
-                questionText = "What is the term for notes that are forbidden in a Raag?",
-                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi", "Samvadhi" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the characteristic phrases of a Raag?",
-                answers = new string[] { "Thaat", "Jaati", "Mukh Ang", "Aroh" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the correct order of the first five raags?",
-                answers = new string[] { "Shree, Maajh, Gauri, Asa, Gujri", "Asa, Nat Narayan, Todi, Malhaar, Basant", "Asa, Basant, Bhairav, Bilawal, Devgandharo", "Basant, Asa, Sarang, Bilwal, Malhaar" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the descending scale of a Raag?",
-                answers = new string[] { "Aroh", "Vadi", "Thaat", "Avroh" },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What is the term for the most used note of a Raag?",
-                answers = new string[] { "Samvadhi", "Vadi", "Thaat", "Jaati" },
+                questionText = "When is Shree Raag sung?",
+                answers = new string[] { "10am-1pm", "6pm-9pm", "Morning", "Midnight" },
                 correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "What is the purpose of Raags in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "To provide a musical framework for Gurbani that helps evoke emotions.", "To entertain listners with melodies.", "To teach classical music techniques.", "To categorize Gurbani by music and ther authors." },
+                questionText = "What is the Samvadi of Shree Raag?",
+                answers = new string[] { "Pa", "Sa", "Ga", "Ma" },
                 correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "How many Mishrat Raags does Shree Raag have?",
+                answers = new string[] { "11", "2", "0", "1" },
+                correctAnswerIndex = 2
+            },
+            new Question
+            {
+                questionText = "What is the Thaat of Shree Raag?",
+                answers = new string[] { "Shree", "Bilaval", "Khamaaj", "Poorvi" },
+                correctAnswerIndex = 3
+            },
+            new Question
+            {
+                questionText = "What is the emotion of Shree Raag?",
+                answers = new string[] { "Devotion", "Joy", "Sadness", "Anger" },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "What is the Aroh of Shree Raag",
+                answers = new string[] { "Sa re Ma Pa Ni Sa'", "Sa Re Ga Pa Dha Sa'", "Sa Ma Pa Dha Ni Sa'", "Sa re ma Pa Ni Sa'" },
+                correctAnswerIndex = 3
             }
         };
     }
@@ -699,68 +683,50 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is the definition of Raag?",
+                questionText = "What is the Aroh of Raag Todi?",
                 answers = new string[] {
-                    "A set of notes ascending and descending a scale that provoke a specific emotion.",
-                    "A style of Indian Classical music performed at festivals.",
-                    "A sequence of notes used in Kirtan without any structure.",
-                    "A Tanti Saaj used in Kirtan to evoke certain emotions."
+                    "Sa re ga ma, Pa, ma dha Ni Sa'",
+                    "Sa Ga Ma Pa Ni Sa'",
+                    "Sa ga ma, Pa, ma dha ma Pa Ni Sa'",
+                    "Sa' Ni dha pa ma Ga re Sa"
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "How many Shudh Raags are there in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "68", "31", "25", "40" },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is the term for the ascending scale of a Raag?",
-                answers = new string[] { "Avroh", "Raag", "Aroh", "Sur" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the second most used Sur in a Raag",
-                answers = new string[] { "Vadi", "Anuvadi", "Vakrit Sur", "Samvadi" },
+                questionText = "What is the Thaat of Raag Todi?",
+                answers = new string[] { "Marva", "Bhairav", "Bilaval", "Todi" },
                 correctAnswerIndex = 3
             },
             new Question
             {
-                questionText = "What is the term for notes that are forbidden in a Raag?",
-                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi", "Samvadhi" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the characteristic phrases of a Raag?",
-                answers = new string[] { "Thaat", "Jaati", "Mukh Ang", "Aroh" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the correct order of the first five raags?",
-                answers = new string[] { "Shree, Maajh, Gauri, Asa, Gujri", "Asa, Nat Narayan, Todi, Malhaar, Basant", "Asa, Basant, Bhairav, Bilawal, Devgandharo", "Basant, Asa, Sarang, Bilwal, Malhaar" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the descending scale of a Raag?",
-                answers = new string[] { "Aroh", "Vadi", "Thaat", "Avroh" },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What is the term for the most used note of a Raag?",
-                answers = new string[] { "Samvadhi", "Vadi", "Thaat", "Jaati" },
+                questionText = "What is the Vadi of Raag Todi?",
+                answers = new string[] { "ma", "dha", "Ga", "Sa" },
                 correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "What is the purpose of Raags in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "To provide a musical framework for Gurbani that helps evoke emotions.", "To entertain listners with melodies.", "To teach classical music techniques.", "To categorize Gurbani by music and ther authors." },
+                questionText = "What is the Avroh of Raag Todi?",
+                answers = new string[] { "Sa' Ni dha, Pa, ma dha ma ga re Sa", "Sa' Dha Ma Re Sa", "Sa' Ni Dha Pa Ma Ga Re Sa", "Sa' ni dha Pa ma Ga re Sa" },
+                correctAnswerIndex = 3
+            },
+            new Question
+            {
+                questionText = "What is the emotion of Raag Todi?",
+                answers = new string[] { "Calming", "Devotion", "Serious", "Uplifting" },
+                correctAnswerIndex = 2
+            },
+            new Question
+            {
+                questionText = "What time is Raag Todi Sung??",
+                answers = new string[] { "6pm-9pm", "9am-6pm", "3am-12pm", "Dawn" },
                 correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "What is the Samvadi of Raag Todi?",
+                answers = new string[] { "dha", "ga", "ma", "ni" },
+                correctAnswerIndex = 1
             }
         };
     }
@@ -770,68 +736,50 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is the definition of Raag?",
+                questionText = "What is the Avroh of Raag Sarang?",
                 answers = new string[] {
-                    "A set of notes ascending and descending a scale that provoke a specific emotion.",
-                    "A style of Indian Classical music performed at festivals.",
-                    "A sequence of notes used in Kirtan without any structure.",
-                    "A Tanti Saaj used in Kirtan to evoke certain emotions."
+                    "Sa' ni Dha Pa Ma Ga Re Sa",
+                    "Sa Ga Ma Pa Ni Sa'",
+                    "Sa' ni Pa Ma Re Sa.",
+                    "Sa' Ni dha pa ma Ga re Sa"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "How many Shudh Raags are there in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "68", "31", "25", "40" },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is the term for the ascending scale of a Raag?",
-                answers = new string[] { "Avroh", "Raag", "Aroh", "Sur" },
                 correctAnswerIndex = 2
             },
             new Question
             {
-                questionText = "What is the second most used Sur in a Raag",
-                answers = new string[] { "Vadi", "Anuvadi", "Vakrit Sur", "Samvadi" },
+                questionText = "What is the Jaati of Raag Sarang?",
+                answers = new string[] { "Shaudav-Sampooran", "Audav-Sampooran", "Sampooran Jaati", "Audav Jaati" },
                 correctAnswerIndex = 3
             },
             new Question
             {
-                questionText = "What is the term for notes that are forbidden in a Raag?",
-                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi", "Samvadhi" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the characteristic phrases of a Raag?",
-                answers = new string[] { "Thaat", "Jaati", "Mukh Ang", "Aroh" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the correct order of the first five raags?",
-                answers = new string[] { "Shree, Maajh, Gauri, Asa, Gujri", "Asa, Nat Narayan, Todi, Malhaar, Basant", "Asa, Basant, Bhairav, Bilawal, Devgandharo", "Basant, Asa, Sarang, Bilwal, Malhaar" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the descending scale of a Raag?",
-                answers = new string[] { "Aroh", "Vadi", "Thaat", "Avroh" },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What is the term for the most used note of a Raag?",
-                answers = new string[] { "Samvadhi", "Vadi", "Thaat", "Jaati" },
+                questionText = "What is the Samvadi of Raag Sarang?",
+                answers = new string[] { "Re", "Pa", "Sa", "Ma" },
                 correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "What is the purpose of Raags in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "To provide a musical framework for Gurbani that helps evoke emotions.", "To entertain listners with melodies.", "To teach classical music techniques.", "To categorize Gurbani by music and ther authors." },
+                questionText = "What time is Raag Sarang sung?",
+                answers = new string[] { "12pm-3pm", "6am-9am", "10am-11am", "12pm-3am" },
                 correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "What is the Vadi of Raag Sarang?",
+                answers = new string[] { "Ma", "Sa", "Pa", "Re" },
+                correctAnswerIndex = 3
+            },
+            new Question
+            {
+                questionText = "What note has both forms used in Raag Sarang?",
+                answers = new string[] { "Sa", "Ni", "Ga", "Ma" },
+                correctAnswerIndex = 1
+            },
+            new Question
+            {
+                questionText = "What is the Aroh of Raag Sarang?",
+                answers = new string[] { "Sa Ga Ma Pa Ni Sa'", "Sa Re Pa Dha Ni Sa'", "Sa Re Ma Pa Ni Sa'", "sa, re ga ma, re pa Ni dha ni sa'" },
+                correctAnswerIndex = 2
             }
         };
     }
@@ -841,68 +789,45 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is the definition of Raag?",
-                answers = new string[] {
-                    "A set of notes ascending and descending a scale that provoke a specific emotion.",
-                    "A style of Indian Classical music performed at festivals.",
-                    "A sequence of notes used in Kirtan without any structure.",
-                    "A Tanti Saaj used in Kirtan to evoke certain emotions."
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "How many Shudh Raags are there in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "68", "31", "25", "40" },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is the term for the ascending scale of a Raag?",
-                answers = new string[] { "Avroh", "Raag", "Aroh", "Sur" },
+                questionText = "What is the Aroh of Raag Malhaar?",
+                answers = new string[] {"Sa Re Ga Ma Pa ni Dha Ni Sa'", "Sa Re Pa Dha Ni Sa'", "Sa, Re Ga Ma, Re Pa ni Dha Ni Sa'", "sa, re ga ma, re pa Ni dha ni sa'"},
                 correctAnswerIndex = 2
             },
             new Question
             {
-                questionText = "What is the second most used Sur in a Raag",
-                answers = new string[] { "Vadi", "Anuvadi", "Vakrit Sur", "Samvadi" },
+                questionText = "What is the Jaati of Raag Malhaar?",
+                answers = new string[] { "Shaudav-Sampooran", "Audav-Sampooran", "Audav Jaati", "Sampooran Jaati" },
                 correctAnswerIndex = 3
             },
             new Question
             {
-                questionText = "What is the term for notes that are forbidden in a Raag?",
-                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi", "Samvadhi" },
+                questionText = "What is the Samvadi of Raag Malhaar?",
+                answers = new string[] { "Sa", "Pa", "Ni", "Ma" },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What is the term for the characteristic phrases of a Raag?",
-                answers = new string[] { "Thaat", "Jaati", "Mukh Ang", "Aroh" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the correct order of the first five raags?",
-                answers = new string[] { "Shree, Maajh, Gauri, Asa, Gujri", "Asa, Nat Narayan, Todi, Malhaar, Basant", "Asa, Basant, Bhairav, Bilawal, Devgandharo", "Basant, Asa, Sarang, Bilwal, Malhaar" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the descending scale of a Raag?",
-                answers = new string[] { "Aroh", "Vadi", "Thaat", "Avroh" },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What is the term for the most used note of a Raag?",
-                answers = new string[] { "Samvadhi", "Vadi", "Thaat", "Jaati" },
+                questionText = "What time is Raag Malhaar sung?",
+                answers = new string[] { "Summer", "Rainy Season", "Snowy Season", "6am-9am" },
                 correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "What is the purpose of Raags in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "To provide a musical framework for Gurbani that helps evoke emotions.", "To entertain listners with melodies.", "To teach classical music techniques.", "To categorize Gurbani by music and ther authors." },
+                questionText = "What is the Vadi of Raag Malhaar?",
+                answers = new string[] { "ni", "Sa", "Ma", "Dha" },
+                correctAnswerIndex = 2
+            },
+            new Question
+            {
+                questionText = "What note has both forms used in the Avroh of Raag Malhaar?",
+                answers = new string[] { "Ni", "Ni", "Ga", "Ma" },
                 correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "What is the Avroh of Raag Sarang?",
+                answers = new string[] { "Sa Re Ga Ma Pa ni Dha Ni Sa'", "Sa' Dha Pa Ga Re Sa", "Sa' Ni Dha ni Pa Ma Ga Re Sa", "Sa' Dha ni Pa, Ga Ma Re Sa" },
+                correctAnswerIndex = 3
             }
         };
     }
@@ -912,71 +837,56 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is the definition of Raag?",
+                questionText = "What is the Aroh of Raag Bhairo?",
                 answers = new string[] {
-                    "A set of notes ascending and descending a scale that provoke a specific emotion.",
-                    "A style of Indian Classical music performed at festivals.",
-                    "A sequence of notes used in Kirtan without any structure.",
-                    "A Tanti Saaj used in Kirtan to evoke certain emotions."
+                    "Sa ni DHa Pa Ma Ga Re Sa",
+                    "Sa Ga Ma Pa Ni Sa'",
+                    "Sa re Ga Ma Pa dha Ni Sa'",
+                    "Sa' Ni dha pa ma Ga re Sa"
                 },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "How many Shudh Raags are there in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "68", "31", "25", "40" },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is the term for the ascending scale of a Raag?",
-                answers = new string[] { "Avroh", "Raag", "Aroh", "Sur" },
                 correctAnswerIndex = 2
             },
             new Question
             {
-                questionText = "What is the second most used Sur in a Raag",
-                answers = new string[] { "Vadi", "Anuvadi", "Vakrit Sur", "Samvadi" },
+                questionText = "What is the Jaati of Raag Bhairo",
+                answers = new string[] { "Shaudav-Sampooran", "Audav-Sampooran", "Audav Jaati", "Sampooran Jaati" },
                 correctAnswerIndex = 3
             },
             new Question
             {
-                questionText = "What is the term for notes that are forbidden in a Raag?",
-                answers = new string[] { "Varjit Surs", "Vakrit Surs", "Vadi", "Samvadhi" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the characteristic phrases of a Raag?",
-                answers = new string[] { "Thaat", "Jaati", "Mukh Ang", "Aroh" },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the correct order of the first five raags?",
-                answers = new string[] { "Shree, Maajh, Gauri, Asa, Gujri", "Asa, Nat Narayan, Todi, Malhaar, Basant", "Asa, Basant, Bhairav, Bilawal, Devgandharo", "Basant, Asa, Sarang, Bilwal, Malhaar" },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What is the term for the descending scale of a Raag?",
-                answers = new string[] { "Aroh", "Vadi", "Thaat", "Avroh" },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What is the term for the most used note of a Raag?",
-                answers = new string[] { "Samvadhi", "Vadi", "Thaat", "Jaati" },
+                questionText = "What is the Thaat of Raag Bhairo?",
+                answers = new string[] { "Bilval", "Bhairv", "Kalyan", "Bhairavi" },
                 correctAnswerIndex = 1
             },
             new Question
             {
-                questionText = "What is the purpose of Raags in Sri Guru Granth Sahib Ji?",
-                answers = new string[] { "To provide a musical framework for Gurbani that helps evoke emotions.", "To entertain listners with melodies.", "To teach classical music techniques.", "To categorize Gurbani by music and ther authors." },
+                questionText = "What time is Raag Bhairo sung?",
+                answers = new string[] { "6am-9am", "12am-3pm", "10pm-11am", "12pm-3pm" },
                 correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "How many Mishrat Raags does Raag Bhairo have?",
+                answers = new string[] { "1", "3", "0", "2" },
+                correctAnswerIndex = 2
+            },
+            new Question
+            {
+                questionText = "What is the Aroh of Raag Bhairo?",
+                answers = new string[] { "Sa Re Ga ma Pa Dha Ni Sa'", "sa Re Ga Ma pa Dha Ni sa'", "Sa Re Ga Ma Pa Dha Ni Sa'", "Sa re Ga Ma Pa dha Ni Sa'" },
+                correctAnswerIndex = 3
+            },
+            new Question
+            {
+                questionText = "What is the Vadi of Raag Bhairo?",
+                answers = new string[] { "re", "dha", "ma", "ga" },
+                correctAnswerIndex = 1
             }
         };
     }
+
+
+
 
     // ========== SUR LEVEL QUESTION BANKS ==========
 
@@ -1069,80 +979,91 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is a Sur?",
+                questionText = "",
                 answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "How many Shudh Surs are in an octave?",
+                questionText = "",
                 answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What are the 4 Komal Surs?",
+                questionText = "",
                 answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 2
+                correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What is the full name of Sa?",
+                questionText = "",
                 answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 1
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
             }
         };
     }
@@ -1152,80 +1073,91 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is a Sur?",
+                questionText = "",
                 answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "How many Shudh Surs are in an octave?",
+                questionText = "",
                 answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What are the 4 Komal Surs?",
+                questionText = "",
                 answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 2
+                correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What is the full name of Sa?",
+                questionText = "",
                 answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 1
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
             }
         };
     }
@@ -1235,80 +1167,91 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is a Sur?",
+                questionText = "",
                 answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "How many Shudh Surs are in an octave?",
+                questionText = "",
                 answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What are the 4 Komal Surs?",
+                questionText = "",
                 answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 2
+                correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What is the full name of Sa?",
+                questionText = "",
                 answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 1
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
             }
         };
     }
@@ -1318,80 +1261,91 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is a Sur?",
+                questionText = "",
                 answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "How many Shudh Surs are in an octave?",
+                questionText = "",
                 answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What are the 4 Komal Surs?",
+                questionText = "",
                 answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 2
+                correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What is the full name of Sa?",
+                questionText = "",
                 answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 1
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
             }
         };
     }
@@ -1401,80 +1355,91 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is a Sur?",
+                questionText = "",
                 answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "How many Shudh Surs are in an octave?",
+                questionText = "",
                 answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What are the 4 Komal Surs?",
+                questionText = "",
                 answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 2
+                correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What is the full name of Sa?",
+                questionText = "",
                 answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 1
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
             }
         };
     }
@@ -1484,520 +1449,122 @@ public class QuizManager : MonoBehaviour
         {
             new Question
             {
-                questionText = "What is a Sur?",
+                questionText = "",
                 answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "How many Shudh Surs are in an octave?",
+                questionText = "",
                 answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
                 correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What are the 4 Komal Surs?",
+                questionText = "",
                 answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 2
+                correctAnswerIndex = 0
             },
             new Question
             {
-                questionText = "What is the full name of Sa?",
+                questionText = "",
                 answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
+                    "",
+                    "",
+                    "",
+                    ""
                 },
-                correctAnswerIndex = 1
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
+            },
+            new Question
+            {
+                questionText = "",
+                answers = new string[] {
+                    "",
+                    "",
+                    "",
+                    ""
+                },
+                correctAnswerIndex = 0
             }
         };
     }
-    Question[] GetSurLevel8Questions()
+
+
+    public void PlayAudio(int index)
     {
-        return new Question[]
+        // Stop all other audio sources
+        for (int i = 0; i < answerOptions.Length; i++)
         {
-            new Question
+            if (i != index && answerOptions[i].audioSource != null)
             {
-                questionText = "What is a Sur?",
-                answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "How many Shudh Surs are in an octave?",
-                answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What are the 4 Komal Surs?",
-                answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the full name of Sa?",
-                answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
-                },
-                correctAnswerIndex = 1
+                answerOptions[i].audioSource.Stop();
             }
-        };
-    }
-    Question[] GetSurLevel9Questions()
-    {
-        return new Question[]
+        }
+
+        if (index >= 0 && index < answerOptions.Length)
         {
-            new Question
+            AudioSource source = answerOptions[index].audioSource;
+
+            if (source != null && source.clip != null)
             {
-                questionText = "What is a Sur?",
-                answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "How many Shudh Surs are in an octave?",
-                answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What are the 4 Komal Surs?",
-                answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the full name of Sa?",
-                answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
-                },
-                correctAnswerIndex = 1
+                source.Play();
             }
-        };
-    }
-    Question[] GetSurLevel10Questions()
-    {
-        return new Question[]
-        {
-            new Question
+            else
             {
-                questionText = "What is a Sur?",
-                answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "How many Shudh Surs are in an octave?",
-                answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What are the 4 Komal Surs?",
-                answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the full name of Sa?",
-                answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
-                },
-                correctAnswerIndex = 1
+                Debug.LogWarning($"No audio clip found for answer index {index}");
             }
-        };
+        }
     }
-    Question[] GetSurLevel11Questions()
-    {
-        return new Question[]
-        {
-            new Question
-            {
-                questionText = "What is a Sur?",
-                answers = new string[] {
-                    "A musical note",
-                    "A rhythm pattern",
-                    "A type of Raag",
-                    "A tempo"
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "How many Shudh Surs are in an octave?",
-                answers = new string[] {
-                    "12",
-                    "5",
-                    "7",
-                    "8"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "Which of these is NOT a Sur in Gurmat Sangeet?",
-                answers = new string[] {
-                    "Sa",
-                    "Do",
-                    "Ni",
-                    "Dha"
-                },
-                correctAnswerIndex = 1
-            },
-            new Question
-            {
-                questionText = "What is a Vakrit Sur?",
-                answers = new string[] {
-                    "A forbidden note in a Raag",
-                    "The 20th Raag in Sri Guru Granth Sahib Ji",
-                    "A type of Shudh Sur",
-                    "A variation of a Shudh Sur"
-                },
-                correctAnswerIndex = 3
-            },
-            new Question
-            {
-                questionText = "What are the two types of Vakrit Surs?",
-                answers = new string[] {
-                    "Teevar and Komal",
-                    "Shree and Maajh",
-                    "Achala and Jaati",
-                    "Taal and Theka"
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "What are the 4 Komal Surs?",
-                answers = new string[] {
-                    "Sa, Ga, Ma, Pa",
-                    "Pa, Dha, Ni, Sa",
-                    "Re, Ga, Dha, Ni",
-                    "Sa, Pa, Dha, Ni"
-                },
-                correctAnswerIndex = 2
-            },
-            new Question
-            {
-                questionText = "What is the full name of Sa?",
-                answers = new string[] {
-                    "Shadaj",
-                    "Sa",
-                    "Sarang",
-                    "Saaj"
-                },
-                correctAnswerIndex = 1
-            }
-        };
-    }
-    Question[] GetSurLevel12Questions()
-    {
-        return new Question[]
-        {
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            },
-            new Question
-            {
-                questionText = "",
-                answers = new string[] {
-                    "",
-                    "",
-                    "",
-                    ""
-                },
-                correctAnswerIndex = 0
-            }
-        };
-    }
+
 }
 
 [System.Serializable]
@@ -2006,7 +1573,17 @@ public class Question
     public string questionText;
     public string[] answers;
     public int correctAnswerIndex;
+
+    public bool isAudioQuestion;
+    public AudioClip[] answerAudioClips;
 }
 
+[System.Serializable]
+public class AnswerOption
+{
+    public Button answerButton;
+    public Button playButton;
+    public AudioSource audioSource;
+}
 
 
