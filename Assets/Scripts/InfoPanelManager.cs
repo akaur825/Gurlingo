@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -91,15 +91,15 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Bilaval:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Bilaval is the 16th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Bilaval Thaat — uses all Shudh notes.</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Sampooran Jaati — all 7 notes are used in both the Aroh and Avroh.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>2nd Pehar of the day (9am – 12pm).</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Bilaval Thaat â€” uses all Shudh notes.</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran Jaati â€” all 7 notes are used in both the Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>2nd Pehar of the day (9am â€“ 12pm).</i>\n\n" +
                     "<indent=180><b>Raag Bilaval is a very popular raag and is often one of the first raags taught to those learning Gurmat Sangeet, due to its usage of all shudh notes.</b>\n\n" +
                     "<indent=180><b>Mishrat Raags:</b> <i>Bilaval Mangal and Bilaval Dakhni.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa Re Ga Ma Pa Dha Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni Dha Pa Ma Ga Re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Re Ga Ma Pa Dha Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ Ni Dha Pa Ma Ga Re Sa</i>\n" +
                     "<indent=180>Notice how all notes are Shudh!\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -111,7 +111,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180><i>Raag Bilaval is a very happy and joyful raag.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/iiUHl8fTn5Y?si=smegPS9pAaLQaBkl\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/iiUHl8fTn5Y?si=smegPS9pAaLQaBkl\n\n\n"
 
                 )
             },
@@ -124,15 +124,15 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Gond:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Gond is the 17th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Bilaval Thaat — uses all Shudh notes.</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Sampooran Jaati — all 7 notes are used in both the Aroh and Avroh.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>2nd Pehar of the day (9am – 12pm).</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Bilaval Thaat â€” uses all Shudh notes.</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran Jaati â€” all 7 notes are used in both the Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>2nd Pehar of the day (9am â€“ 12pm).</i>\n\n" +
                     "<indent=180><b>Raag Gond is an uncommon raag in Gurmat Sangeet, unlike Raag Bilaval.</b>\n\n" +
                     "<indent=180><b>Mishrat Raag:</b> <i>Bilaval Gond.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa Re Ga Ma Pa Dha Ni Dha Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni Dha Ni Pa Ma Ga Re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Re Ga Ma Pa Dha Ni Dha Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ Ni Dha Ni Pa Ma Ga Re Sa</i>\n" +
                     "<indent=180>Notice how all notes are Shudh!\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -141,10 +141,10 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Mood:</color></b>\n\n" +
-                    "<indent=180><i>Gond’s mood is not widely documented, but it is often considered meditative and introspective due to its uncommon usage.</i>\n\n" +
+                    "<indent=180><i>Gondâ€™s mood is not widely documented, but it is often considered meditative and introspective due to its uncommon usage.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/Wzw2eQ1FN2A?si=wzrnDVza_AMseZoh\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/Wzw2eQ1FN2A?si=wzrnDVza_AMseZoh\n\n\n"
 
                 )
             },
@@ -157,15 +157,15 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Basant:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Basant is the 25th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Bilaval Thaat — uses all Shudh notes.</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Audav–Sampooran Jaati — 5 notes in Aroh, 7 in Avroh.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>Associated with Spring; no specific pehar — can be sung all day.</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Bilaval Thaat â€” uses all Shudh notes.</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Audavâ€“Sampooran Jaati â€” 5 notes in Aroh, 7 in Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Associated with Spring; no specific pehar â€” can be sung all day.</i>\n\n" +
                     "<indent=180><b>Raag Basant has NO Mishrat Raags.</b>\n\n" +
-                    "<indent=180><b>Basant Ki Vaar</b> — a well-known bani is composed in Raag Basant.\n\n" +
+                    "<indent=180><b>Basant Ki Vaar</b> â€” a well-known bani is composed in Raag Basant.\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa Ga Ma Dha Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni Dha Pa Ma Ga Re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Ga Ma Dha Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ Ni Dha Pa Ma Ga Re Sa</i>\n" +
                     "<indent=180>Notice how all notes are Shudh!\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -174,7 +174,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/LUoSCMa2I-E?si=Qo3d_NzBqzmNznEw\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/LUoSCMa2I-E?si=Qo3d_NzBqzmNznEw\n\n\n"
 
                 )
             },
@@ -187,16 +187,16 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Kalyan:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Kalyan is the 29th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Kalyan Thaat — uses all Shudh notes, with vakrit Ma (Teevra Ma used creatively).</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Sampooran Jaati — all 7 notes are used in both the Aroh and Avroh.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>Evening Raag — commonly sung between 6pm and 9pm.</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Kalyan Thaat â€” uses all Shudh notes, with vakrit Ma (Teevra Ma used creatively).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran Jaati â€” all 7 notes are used in both the Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Evening Raag â€” commonly sung between 6pm and 9pm.</i>\n\n" +
                     "<indent=180><b>Mishrat Raag:</b> <i>Kalyan Bhopali.</i>\n\n" +
                     "<indent=180><b>This Raag is very popular and is also known as Raag Yaman in Indian Classical music.</b>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa Re Ga Ma (Teevra) Pa Dha Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni Dha Pa Ma (Teevra) Ga Re Sa</i>\n" +
-                    "<indent=180>Note: Vakrit Ma — Teevra Ma is used in a special way.\n\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Re Ga Ma (Teevra) Pa Dha Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ Ni Dha Pa Ma (Teevra) Ga Re Sa</i>\n" +
+                    "<indent=180>Note: Vakrit Ma â€” Teevra Ma is used in a special way.\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
                     "<indent=180><b>Vadi:</b> <i>Ga (Gandhar)</i>\n" +
@@ -204,7 +204,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/gnEX7tLlVJY?si=ukO48tQMbbFqZUNt\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/gnEX7tLlVJY?si=ukO48tQMbbFqZUNt\n\n\n"
 
                 )
             },
@@ -217,16 +217,16 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Maaroo:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Maaroo is the 21st Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Khamaaj Thaat — Ni is typically vakrit (used with variation).</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Khamaaj Thaat â€” Ni is typically vakrit (used with variation).</i>\n\n" +
                     "<indent=180><b>Note Usage:</b> <i>Both forms of Ni, Dha, and Ma are used.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>Sung between 12pm – 3pm.</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Shaudav–Sampooran — 6 notes in Aroh, 7 in Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 12pm â€“ 3pm.</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Shaudavâ€“Sampooran â€” 6 notes in Aroh, 7 in Avroh.</i>\n\n" +
                     "<indent=180><b>Mishrat Raags:</b> <i>Maaroo Kafi and Maaroo Dakhni.</i>\n\n" +
                     "<indent=180><b>This Raag is sung during times of war and death but aims to uplift and inspire the spirit.</b>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa Ga Ma Pa Dha Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ ni Dha Pa, ma Pa dha Ni dha Pa, Ma Ga Re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Ga Ma Pa Dha Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ ni Dha Pa, ma Pa dha Ni dha Pa, Ma Ga Re Sa</i>\n" +
                     "<indent=180>Note the unique use of both shudh and vakrit forms.\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -235,7 +235,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/SHCeMRhF5Aw?si=kFdKT7sGm983r3TB\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/SHCeMRhF5Aw?si=kFdKT7sGm983r3TB\n\n\n"
 
                 )
             },
@@ -248,15 +248,15 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Shree Raag:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Shree is the 1st Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Purvi Thaat — Ma, Re, and Dha are vakrit (used with variation).</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Audav–Sampooran — 5 notes in Aroh, 7 in Avroh.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>Sung between 6pm – 9pm.</i>\n\n" +
-                    "<indent=180><b>Mishrat Raags:</b> <i>None — Shree stands alone in its structure.</i>\n\n" +
-                    "<indent=180><b>This Raag provokes a deep sense of separation and longing — it is primarily a serious and somber raag.</b>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Purvi Thaat â€” Ma, Re, and Dha are vakrit (used with variation).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Audavâ€“Sampooran â€” 5 notes in Aroh, 7 in Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 6pm â€“ 9pm.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None â€” Shree stands alone in its structure.</i>\n\n" +
+                    "<indent=180><b>This Raag provokes a deep sense of separation and longing â€” it is primarily a serious and somber raag.</b>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa Re (vakrit) Ma Pa Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni Dha Pa Ma Ga Re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Re (vakrit) Ma Pa Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ Ni Dha Pa Ma Ga Re Sa</i>\n" +
                     "<indent=180>Notice the vakrit use of Ma, Re, and Dha in both ascent and descent.\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -265,7 +265,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/R8o5ra6E_n0?si=3iNzUIIvRLm0FPrd\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/R8o5ra6E_n0?si=3iNzUIIvRLm0FPrd\n\n\n"
 
                 )
             },
@@ -278,15 +278,15 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Todi:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Todi is the 12th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Todi Thaat — Ma, Re, Dha, and Ga are typically vakrit (used in ornamented forms).</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Sampooran — all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>Sung between 12pm – 3pm.</i>\n\n" +
-                    "<indent=180><b>Mishrat Raags:</b> <i>None — Todi is a pure raag.</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Todi Thaat â€” Ma, Re, Dha, and Ga are typically vakrit (used in ornamented forms).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran â€” all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 12pm â€“ 3pm.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None â€” Todi is a pure raag.</i>\n\n" +
                     "<indent=180><b>This Raag is considered very serious and is performed with deep emotional intensity.</b>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa re ga ma, Pa, ma dha Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni dha, Pa, ma dha ma ga re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa re ga ma, Pa, ma dha Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ Ni dha, Pa, ma dha ma ga re Sa</i>\n" +
                     "<indent=180>Vakrit notes create a deeply expressive and ornamented character.\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -295,7 +295,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/bvRY-CsPvyc?si=R47zriNo6VqliXhM\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/bvRY-CsPvyc?si=R47zriNo6VqliXhM\n\n\n"
 
                 )
             },
@@ -308,15 +308,15 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Sarang:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Sarang is the 26th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Kafi Thaat — Ga and Ni are typically vakrit (used with variation).</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Audav — 5 notes in both Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Kafi Thaat â€” Ga and Ni are typically vakrit (used with variation).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Audav â€” 5 notes in both Aroh and Avroh.</i>\n\n" +
                     "<indent=180><b>Note Usage:</b> <i>Both forms of Ni are used.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>Sung between 12pm – 3pm.</i>\n\n" +
-                    "<indent=180><b>Mishrat Raags:</b> <i>None — Sarang is a standalone raag.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 12pm â€“ 3pm.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None â€” Sarang is a standalone raag.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa Re Ma Pa Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ ni Pa Ma Re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa Re Ma Pa Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ ni Pa Ma Re Sa</i>\n" +
                     "<indent=180>Vakrit notes and audav structure give Sarang its unique melodic feel.\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -325,7 +325,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/0w0Yy7OOD0o?si=8CZNKVtM6GcHEaer\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/0w0Yy7OOD0o?si=8CZNKVtM6GcHEaer\n\n\n"
 
                 )
             },
@@ -338,14 +338,14 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Malhar:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Malhar is the 27th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Khamaaj Thaat — Ni is typically vakrit (used ornamentally or with variation).</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Sampooran — all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Khamaaj Thaat â€” Ni is typically vakrit (used ornamentally or with variation).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran â€” all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
                     "<indent=180><b>Time:</b> <i>Sung anytime during the Rainy / Savan season.</i>\n\n" +
-                    "<indent=180><b>Mishrat Raags:</b> <i>None — Malhar is a standalone, classical monsoon raag.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None â€” Malhar is a standalone, classical monsoon raag.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa, Re Ga Ma, Re Pa ni Dha Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ Dha ni Pa, Ga Ma Re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa, Re Ga Ma, Re Pa ni Dha Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ Dha ni Pa, Ga Ma Re Sa</i>\n" +
                     "<indent=180>Malhar features fluid phrases that evoke the sound and mood of rain.\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -354,7 +354,7 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/n6G6IomIZFM?si=eW0nYZGP-j97RlbO\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/n6G6IomIZFM?si=eW0nYZGP-j97RlbO\n\n\n"
 
                 )
             },
@@ -367,14 +367,14 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=135><b><color=#F5A40A>About Raag Bhairo:</color></b>\n\n" +
 
                     "<indent=180><b>Raag Bhairo is the 24th Shudh Raag in Sri Guru Granth Sahib Ji.</b>\n\n" +
-                    "<indent=180><b>Thaat:</b> <i>Bhairav Thaat — Re, Ga, Dha, and Ni are typically vakrit (used ornamentally or with variation).</i>\n\n" +
-                    "<indent=180><b>Jaati:</b> <i>Sampooran — all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
-                    "<indent=180><b>Time:</b> <i>Sung between 6am – 9am — a popular early morning raag.</i>\n\n" +
-                    "<indent=180><b>Mishrat Raags:</b> <i>None — Bhairo is a distinct and complete raag.</i>\n\n" +
+                    "<indent=180><b>Thaat:</b> <i>Bhairav Thaat â€” Re, Ga, Dha, and Ni are typically vakrit (used ornamentally or with variation).</i>\n\n" +
+                    "<indent=180><b>Jaati:</b> <i>Sampooran â€” all 7 notes are used in both Aroh and Avroh.</i>\n\n" +
+                    "<indent=180><b>Time:</b> <i>Sung between 6am â€“ 9am â€” a popular early morning raag.</i>\n\n" +
+                    "<indent=180><b>Mishrat Raags:</b> <i>None â€” Bhairo is a distinct and complete raag.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Aroh & Avroh:</color></b>\n\n" +
-                    "<indent=180><b>Aroh:</b> <i>Sa re Ga Ma Pa dha Ni Sa’</i>\n" +
-                    "<indent=180><b>Avroh:</b> <i>Sa’ Ni dha Pa Ma Ga re Sa</i>\n" +
+                    "<indent=180><b>Aroh:</b> <i>Sa re Ga Ma Pa dha Ni Saâ€™</i>\n" +
+                    "<indent=180><b>Avroh:</b> <i>Saâ€™ Ni dha Pa Ma Ga re Sa</i>\n" +
                     "<indent=180>The vakrit swars give Bhairo a deep, meditative character.\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Vadi & Samvadi:</color></b>\n\n" +
@@ -383,11 +383,11 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180>Remember: Vadi = Most used note and Samvadi = 2nd most used.</i>\n\n" +
 
                     "<indent=135><b><color=#F5A40A>Example Shabad:</color></b>\n\n" +
-                    "<indent=180><link=\"https://youtu.be/r_ev2D481uw?si=hqlBYzt5HcO8P7_w\"><u><color=#00B0FF>Click here to watch Example Shabad</color></u></link>\n\n\n"
+                    "<indent=180>https://youtu.be/r_ev2D481uw?si=hqlBYzt5HcO8P7_w\n\n\n"
 
                 )
             },
-                        {
+            {
                 (InfoType.Sur, 1),
                 (
                     "Introduction to Sur",
@@ -400,7 +400,9 @@ public class InfoPanelManager : MonoBehaviour
                     "<indent=180><b>Achala Sur:</b> <i> Sur that is fixed in place; It has no Vakrit form - Sa, Pa.</i>\n\n" +
                     "<indent=180><b>Saptak:</b> <i> There are three Saptaks (Octaves) in Gurmat Sangeet - Mandar (low), Madhyam (medium), and Taar (high). Each Saptak has 12 notes (including Vakrit Surs).</i>\n\n" +
                     "<indent=180><b>Shadaj:</b> <i> The proper and full name of Sa.</i>\n\n" +
-                    "<indent=200><i>Note that Shadaj is an Achala Sur.</i>\n\n"
+                    "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
+                    "<indent=180><b>Shudh:</b>\n\n" +
+                    "<indent=180><b>Note:</b><i> Shadaj is an Achala Sur.</i>\n\n"
                 )
             },
             {
@@ -410,8 +412,7 @@ public class InfoPanelManager : MonoBehaviour
                     "\n<align=center><b>In this level we will introduce a new note, Re, or Rishab.</b></align>\n\n" +
                     "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
                     "<indent=180><b>Shudh:</b>\n\n" +
-                    "<indent=180><b>Komal:</b>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa and Re!</color></b>\n\n"
+                    "<indent=180><b>Komal:</b>\n\n"
                 )
             },
             {
@@ -421,8 +422,7 @@ public class InfoPanelManager : MonoBehaviour
                     "\n<align=center><b>In this level we will introduce a new note, Ga, or Gandhar.</b></align>\n\n" +
                     "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
                     "<indent=180><b>Shudh:</b>\n\n" +
-                    "<indent=180><b>Komal:</b>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, and Ga!</color></b>\n\n"
+                    "<indent=180><b>Komal:</b>\n\n"
                 )
             },
             {
@@ -432,8 +432,7 @@ public class InfoPanelManager : MonoBehaviour
                     "\n<align=center><b>In this level we will introduce a new note, Ma, or Madhyam.</b></align>\n\n" +
                     "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
                     "<indent=180><b>Shudh:</b>\n\n" +
-                    "<indent=180><b>Teevar:</b>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, Ga, and Ma!</color></b>\n\n"
+                    "<indent=180><b>Teevar:</b>\n\n"
                 )
             },
             {
@@ -443,8 +442,7 @@ public class InfoPanelManager : MonoBehaviour
                     "\n<align=center><b>In this level we will introduce a new note, Pa, or Pancham.</b></align>\n\n" +
                     "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
                     "<indent=180><b>Shudh:</b>\n\n" +
-                    "<indent=180><b>Note:</b><i> Pancham is an Achala Sur, meaning it has no Vakrit form.</i>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, Ga, Ma, and Pa!</color></b>\n\n"
+                    "<indent=180><b>Note:</b><i> Pancham is an Achala Sur, meaning it has no Vakrit form.</i>\n\n"
                 )
             },
             {
@@ -454,8 +452,7 @@ public class InfoPanelManager : MonoBehaviour
                     "\n<align=center><b>In this level we will introduce a new note, Dha, or Dhaivat.</b></align>\n\n" +
                     "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
                     "<indent=180><b>Shudh:</b>\n\n" +
-                    "<indent=180><b>Komal:</b>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, Ga, Ma, Pa, and Dha!</color></b>\n\n"
+                    "<indent=180><b>Komal:</b>\n\n" 
                 )
             },
             {
@@ -465,8 +462,7 @@ public class InfoPanelManager : MonoBehaviour
                     "\n<align=center><b>In this level we will introduce the final note in a Saptak, Ni, or Nishad.</b></align>\n\n" +
                     "<indent=135><b><color=#F5A40A>Click below to hear this note!</color></b>\n\n" +
                     "<indent=180><b>Shudh:</b>\n\n" +
-                    "<indent=180><b>Komal:</b>\n\n" +
-                    "<indent=135><b><color=#F5A40A>Click below to hear a Sequence that uses Sa, Re, Ga, Ma, Pa, Dha, and Ni!</color></b>\n\n"
+                    "<indent=180><b>Komal:</b>\n\n" 
                 )
             }
         };
